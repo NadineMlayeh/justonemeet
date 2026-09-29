@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JustOneMeet — Un seul rendez-vous pour lancer votre entreprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#06c167;--bg:#f3f3ef;--sf:#fff;--ink:#0b0d0c;--mute:#5a605d;--line:#d9dad3;--gt:#047a44;--onG:#04140b;--dot:rgba(10,20,15,.16);--glow:.14;
+--d:"Montserrat",system-ui,sans-serif;--b:"Montserrat",system-ui,sans-serif}
+[data-theme=dark]{--bg:#070908;--sf:#0f1211;--ink:#eef1ee;--mute:#8f9792;--line:#1f2321;--gt:#33e28d;--dot:rgba(255,255,255,.13);--glow:.2}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font:400 1rem/1.7 var(--b);background:var(--bg);color:var(--ink);transition:background .35s,color .35s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:6px}
+.w{max-width:1200px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--d);font-weight:700;line-height:1.1;letter-spacing:-.03em}
+[lang=ar]{font-family:"Noto Sans Arabic",var(--b)!important;letter-spacing:0}
+h2{font-size:clamp(1.9rem,3.6vw,2.9rem);max-width:20ch}
+.lead{color:var(--mute);max-width:50ch;margin-top:18px}
+section{padding:120px 0;position:relative;z-index:1}
+.glow{position:fixed;left:0;top:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(6,193,103,var(--glow)),transparent);will-change:transform}
+@media(hover:none){.glow{display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--g);color:var(--onG);font:600 .98rem var(--b);padding:15px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--g)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--g)}
+.btn.sm{padding:11px 20px;font-size:.92rem}
+/* spotlight surfaces */
+[data-spot]{position:relative;background:var(--sf);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+[data-spot]::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(360px circle at var(--x,50%) var(--y,50%),rgba(6,193,103,.16),transparent 70%)}
+[data-spot]:hover::before{opacity:1}
+[data-spot]:hover{border-color:color-mix(in srgb,var(--g) 55%,var(--line))}
+/* header */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{font:800 1.25rem var(--b);letter-spacing:-.04em;display:flex;align-items:center;gap:9px}
+.logo i{display:flex;gap:3px}.logo i s{width:8px;height:8px;border-radius:50%;background:var(--g)}
+.logo b{color:var(--g);font-weight:700}
+nav ul{display:flex;gap:2px;list-style:none;padding:5px;border:1px solid var(--line);border-radius:999px;background:var(--sf)}
+nav a{display:block;padding:8px 18px;border-radius:999px;font-weight:500;font-size:.93rem;color:var(--mute);transition:.25s}
+nav a:hover{color:var(--ink)}
+nav a.on{background:var(--ink);color:var(--bg)}
+.tools{display:flex;gap:10px;align-items:center}
+.tg{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--sf);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.tg svg{width:18px;height:18px}
+[data-theme=dark] .sun,:root:not([data-theme=dark]) .moon{display:none}
+.burger{display:none}
+/* hero */
+.hero{padding:0;min-height:calc(100vh - 74px);display:flex;align-items:center;overflow:hidden}
+.hero .w{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center;padding-top:90px;padding-bottom:90px}
+h1{font-size:clamp(2.2rem,4.6vw,3.9rem);line-height:1.08;font-weight:800;max-width:15ch}
+h1 span{display:block;color:var(--g)}
+.hero p{color:var(--mute);font-size:1.05rem;max-width:46ch;margin:24px 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero h1,.hero p,.hero .cta,.dossier{animation:in .9s cubic-bezier(.2,.7,.2,1) both}
+.hero p{animation-delay:.12s}.hero .cta{animation-delay:.22s}.dossier{animation-delay:.32s}
+@keyframes in{from{opacity:0;transform:translateY(22px)}}
+.dossier{padding:26px;backdrop-filter:blur(8px)}
+.dossier h3{font:600 .95rem var(--b);display:flex;justify-content:space-between;letter-spacing:0}
+.dossier h3 span{color:var(--gt)}
+.bar{height:3px;background:var(--line);margin:16px 0 6px;border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--g);animation:fill 3.4s .8s ease-out forwards}
+.dossier ul{list-style:none;padding:0}
+.dossier li{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:.96rem;color:var(--mute);animation:on .5s forwards}
+.dossier li:first-child{border-top:0}
+.dossier li::before{content:"";width:20px;height:20px;flex:none;border-radius:50%;border:1.5px solid var(--line);background:no-repeat center/11px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.6 2.5L10 3.5' fill='none' stroke='%2304140b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");animation:tick .4s forwards}
+.dossier li:nth-child(1),.dossier li:nth-child(1)::before{animation-delay:1s}
+.dossier li:nth-child(2),.dossier li:nth-child(2)::before{animation-delay:1.7s}
+.dossier li:nth-child(3),.dossier li:nth-child(3)::before{animation-delay:2.4s}
+.dossier li:nth-child(4),.dossier li:nth-child(4)::before{animation-delay:3.1s}
+.dossier li:nth-child(5),.dossier li:nth-child(5)::before{animation-delay:3.8s}
+@keyframes fill{to{width:100%}}
+@keyframes on{to{color:var(--ink)}}
+@keyframes tick{to{background-color:var(--g);border-color:var(--g)}}
+/* marquee */
+.mq{border-block:1px solid var(--line);overflow:hidden;position:relative;z-index:1;padding:20px 0}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 38s linear infinite;font:600 1.25rem var(--b);color:var(--mute);letter-spacing:-.01em}
+.mq span::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--g);margin-left:44px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* services */
+.svc{margin-top:64px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 1fr 40px;gap:32px;align-items:center;padding:30px 8px;border-bottom:1px solid var(--line);position:relative;transition:padding .35s}
+.row::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--g);transition:width .5s}
+.row:hover{padding-left:28px}.row:hover::after{width:100%}
+.row h3{font-size:clamp(1.3rem,2.2vw,1.75rem);transition:color .3s}
+.row:hover h3{color:var(--gt)}
+.row p{color:var(--mute);max-width:44ch}
+.row svg{width:26px;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:.35s;justify-self:end}
+.row:hover svg{transform:rotate(-45deg);stroke:var(--gt)}
+/* promises */
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.pg div{padding:30px 26px 34px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between}
+.pg h3{font-size:1.4rem}.pg p{color:var(--mute);font-size:.98rem}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:70px;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:0;top:20px;height:1px;width:0;background:var(--g);transition:width 1.8s .2s ease}
+.steps.go::after{width:100%}
+.step b{display:grid;place-items:center;width:41px;height:41px;border-radius:50%;background:var(--bg);border:1px solid var(--g);font:600 .95rem var(--b);position:relative;z-index:1;color:var(--gt)}
+.step h3{font-size:1.25rem;margin:22px 0 6px}.step p{color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px}
+.stat{padding:38px 34px}
+.stat strong{display:block;font:800 clamp(3rem,6vw,4.6rem)/1 var(--d);letter-spacing:-.05em}
+.stat span{color:var(--mute);display:block;margin-top:14px}
+/* reviews */
+.rv{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 24px;margin-top:56px;scrollbar-width:thin}
+.rv figure{flex:0 0 min(400px,86%);scroll-snap-align:start;padding:32px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
+.rv .s{color:var(--g);letter-spacing:4px;font-size:.9rem}
+.rv blockquote{font:500 1.1rem/1.55 var(--b);letter-spacing:-.01em;margin:18px 0 26px}
+.rv figcaption{font-weight:600;font-size:.95rem}
+/* contact */
+.ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.info{margin-top:44px;display:grid;gap:26px}
+.info h3{font:600 .8rem var(--b);letter-spacing:.02em;color:var(--gt);margin-bottom:4px}
+.info p{font-size:1.05rem}
+form{padding:34px;display:grid;gap:18px}
+label{display:grid;gap:7px;font-weight:500;font-size:.9rem;color:var(--mute)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 15px;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--g);box-shadow:0 0 0 4px color-mix(in srgb,var(--g) 20%,transparent)}
+textarea{min-height:130px;resize:vertical}
+.ok{display:none;color:var(--gt);font-weight:500}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:36px 0 0;overflow:hidden;color:var(--mute);font-size:.92rem}
+footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.big{font:800 clamp(2.6rem,12.5vw,11.5rem)/.8 var(--d);letter-spacing:-.06em;text-align:center;margin-top:44px;color:transparent;-webkit-text-stroke:1px var(--line);white-space:nowrap;transform:translateY(12%)}
+.wa{position:fixed;right:22px;bottom:22px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 26px -10px rgba(0,0,0,.6);z-index:40}
+.wa svg{width:27px;fill:#fff}
+@media(max-width:900px){
+.hero .w,.ct{grid-template-columns:1fr;gap:44px}.hero{min-height:0}
+.row{grid-template-columns:1fr 30px}.row p{grid-column:1/2;grid-row:2}
+.pg,.steps{grid-template-columns:1fr 1fr}.steps::before,.steps::after{display:none}.stats{grid-template-columns:1fr}
+.burger{display:grid}
+nav{position:absolute;left:0;right:0;top:74px;background:var(--bg);border-bottom:1px solid var(--line);display:none;padding:14px 28px}
+nav.open{display:block}nav ul{flex-direction:column;border:0;background:none;padding:0}
+.tools .btn{display:none}section{padding:80px 0}}
+@media(max-width:520px){.pg,.steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important;scroll-behavior:auto!important}.mq div{animation:none}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header>
+<div class="w nav">
+<a class="logo" href="#top" aria-label="JustOneMeet, accueil"><i><s></s><s></s></i><span>JustOne<b>Meet</b></span></a>
+<nav id="nav" aria-label="Navigation principale"><ul>
+<li><a href="#top" class="on">Accueil</a></li><li><a href="#services">Services</a></li><li><a href="#promesses">Promesses</a></li><li><a href="#apropos">À propos</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+<div class="tools">
+<button class="tg" id="tg" aria-label="Changer de thème"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+<a class="btn sm" href="#contact">Prendre rendez-vous</a>
+<button class="tg burger" id="bg" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+</div></div>
+</header>
+
+<main>
+<section class="hero" id="top">
+<div class="w">
+<div>
+<h1>Un seul rendez-vous.<span>Toute votre entreprise.</span></h1>
+<p>Création, identité visuelle, stratégie : JustOneMeet réunit ce qu'il faut pour démarrer et grandir, avec un seul interlocuteur.</p>
+<div class="cta"><a class="btn" href="#contact">Prendre rendez-vous</a><a class="btn ghost" href="#services">Découvrir nos services</a></div>
+</div>
+<aside class="dossier" data-spot aria-label="Exemple de dossier de lancement">
+<h3>Votre dossier de lancement <span>En cours</span></h3>
+<div class="bar"><i></i></div>
+<ul><li>Domiciliation commerciale</li><li>Rédaction des statuts</li><li>Immatriculation</li><li>Logo et charte graphique</li><li>Plan marketing 30/60/90 jours</li></ul>
+</aside>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div>
+<span>Création d'entreprise</span><span>Branding et design</span><span>Stratégie business</span><span>Marketing digital</span><span>Développement web</span><span>Partenariats</span>
+<span>Création d'entreprise</span><span>Branding et design</span><span>Stratégie business</span><span>Marketing digital</span><span>Développement web</span><span>Partenariats</span>
+</div></div>
+
+<section id="services"><div class="w">
+<h2>Tout ce qu'il faut pour lancer votre projet</h2>
+<p class="lead">Six services qui accompagnent un entrepreneur, de l'idée à la croissance.</p>
+<div class="svc">
+<a class="row" href="#contact"><h3>Création d'entreprise</h3><p>Domiciliation commerciale, rédaction des statuts, immatriculation et accompagnement juridique complet.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="row" href="#contact"><h3>Branding et design</h3><p>Identité visuelle, logos professionnels, charte graphique, flyers et packaging.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="row" href="#contact"><h3>Stratégie business</h3><p>Étude de marché, positionnement de marque et plan marketing 30/60/90 jours.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="row" href="#contact"><h3>Marketing digital</h3><p>Campagnes, réseaux sociaux et contenus pour trouver vos premiers clients.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="row" href="#contact"><h3>Développement web</h3><p>Site vitrine, e-commerce et outils sur mesure, fidèles à votre identité.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="row" href="#contact"><h3>Partenariats</h3><p>Mise en relation avec des prestataires et partenaires de confiance.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></div></section>
+
+<section id="promesses" style="padding-top:0"><div class="w">
+<h2>Avec JustOneMeet, vous gagnez</h2>
+<div class="pg">
+<div data-spot><h3>Du temps</h3><p>Un seul interlocuteur pour plusieurs besoins.</p></div>
+<div data-spot><h3>De l'énergie</h3><p>Concentrez-vous sur votre projet, on s'occupe du reste.</p></div>
+<div data-spot><h3>De l'argent</h3><p>Nos solutions packagées réduisent vos coûts.</p></div>
+<div data-spot><h3>De la simplicité</h3><p>Plus besoin de courir entre différents prestataires.</p></div>
+</div></div></section>
+
+<section id="apropos" style="padding-top:0"><div class="w">
+<h2>Comment ça marche</h2>
+<div class="steps" id="steps">
+<div class="step"><b>1</b><h3>Contact</h3><p>Nous discutons de vos besoins.</p></div>
+<div class="step"><b>2</b><h3>Stratégie</h3><p>Nous élaborons un plan sur mesure.</p></div>
+<div class="step"><b>3</b><h3>Exécution</h3><p>Nous lançons votre projet.</p></div>
+<div class="step"><b>4</b><h3>Croissance</h3><p>Vous développez votre activité.</p></div>
+</div>
+<div class="stats">
+<div class="stat" data-spot><strong>49</strong><span>Entreprises accompagnées</span></div>
+<div class="stat" data-spot><strong>55</strong><span>Identités visuelles livrées</span></div>
+<div class="stat" data-spot><strong>25</strong><span>Plans stratégiques réalisés</span></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="w">
+<h2>Ce que disent nos clients</h2>
+<div class="rv" tabindex="0" aria-label="Avis clients">
+<figure data-spot><div><div class="s" aria-label="5 étoiles">★★★★★</div><blockquote>Un service impeccable. Mon entreprise a été créée en un temps record.</blockquote></div><figcaption>Sarah</figcaption></figure>
+<figure data-spot><div><div class="s" aria-label="5 étoiles">★★★★★</div><blockquote dir="rtl" lang="ar">من أحسن الوكالات اللي تعاملت معاهم. تصميم وبراندينغ عالمي. شكرا للفريق.</blockquote></div><figcaption>Amira Ben Salem</figcaption></figure>
+<figure data-spot><div><div class="s" aria-label="4 étoiles sur 5">★★★★☆</div><blockquote>Une équipe au top ! J'étais perdu dans les démarches, mais JustOneMeet a tout géré rapidement.</blockquote></div><figcaption>Mehdi Bouazizi</figcaption></figure>
+<figure data-spot><div><div class="s" aria-label="5 étoiles">★★★★★</div><blockquote dir="rtl" lang="ar">خدمة ممتازة واحترافية. عاونوني باش نأسس مشروعي في وقت قصير.</blockquote></div><figcaption>Youssef Mejbri</figcaption></figure>
+</div></div></section>
+
+<section id="contact" style="padding-top:0"><div class="w ct">
+<div>
+<h2>Parlons de votre projet</h2>
+<p class="lead">Décrivez-nous votre besoin, nous revenons vers vous rapidement.</p>
+<div class="info">
+<div><h3>Adresse</h3><p>Bureau n°10, Immeuble EL Nozha, Cité El Nozha, Ariana</p></div>
+<div><h3>Horaires</h3><p>Lundi au vendredi : 8h à 17h<br>Samedi : 9h à 13h</p></div>
+<div><h3>Email</h3><p><a href="mailto:hello@justonemeet.com">hello@justonemeet.com</a></p></div>
+</div></div>
+<form id="f" data-spot>
+<label>Nom complet<input required autocomplete="name"></label>
+<label>Adresse email<input type="email" required autocomplete="email"></label>
+<label>Service souhaité<select><option>Création d'entreprise</option><option>Branding et design</option><option>Stratégie business</option><option>Marketing digital</option><option>Développement web</option><option>Partenariats</option></select></label>
+<label>Détails de votre projet<textarea placeholder="Votre activité, vos délais, vos attentes"></textarea></label>
+<button class="btn" type="submit">Envoyer le message</button>
+<p class="ok" id="ok" role="status">Message envoyé. Nous vous répondons sous 24 h.</p>
+</form>
+</div></section>
+</main>
+
+<footer><div class="w"><span>© 2026 JustOneMeet. Tous droits réservés.</span><span>Facebook · Instagram · TikTok</span></div><div class="big" aria-hidden="true">JustOneMeet</div></footer>
+<a class="wa" href="#contact" aria-label="Écrire sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.600 15L2 22l5.100-1.300A10 10 0 1012 2zm5.200 13.900c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.1.1.6-.1 1.200z"/></svg></a>
+
+<script>
+const R=document.documentElement,$=s=>document.querySelector(s);
+try{const s=localStorage.getItem("jom-theme");if(s)R.dataset.theme=s;else if(!matchMedia("(prefers-color-scheme: dark)").matches)R.dataset.theme="light"}catch(e){}
+$("#tg").onclick=()=>{const t=R.dataset.theme==="dark"?"light":"dark";R.dataset.theme=t;try{localStorage.setItem("jom-theme",t)}catch(e){}};
+const nav=$("#nav"),bg=$("#bg");
+bg.onclick=()=>{const o=nav.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+nav.onclick=e=>{if(e.target.tagName==="A")nav.classList.remove("open")};
+const links=[...nav.querySelectorAll("a")];
+["top","services","promesses","apropos","contact"].forEach(id=>{new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+id))}),{rootMargin:"-45% 0px -50% 0px"}).observe(document.getElementById(id))});
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("go");o.disconnect()}}),{threshold:.6}).observe($("#steps"));
+$("#f").onsubmit=e=>{e.preventDefault();$("#ok").style.display="block";e.target.reset()};
+/* cursor glow + spotlight surfaces */
+const gl=$(".glow");let mx=innerWidth/2,my=innerHeight/3,gx=mx,gy=my;
+addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY;const s=e.target.closest&&e.target.closest("[data-spot]");if(s){const r=s.getBoundingClientRect();s.style.setProperty("--x",e.clientX-r.left+"px");s.style.setProperty("--y",e.clientY-r.top+"px")}});
+/* smooth cursor glow */
+let last=performance.now();
+function frame(t){const k=1-Math.exp(-(t-last)/90);last=t;gx+=(mx-gx)*k;gy+=(my-gy)*k;gl.style.transform=`translate3d(${gx.toFixed(1)}px,${gy.toFixed(1)}px,0)`;requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
